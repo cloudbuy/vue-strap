@@ -38,7 +38,7 @@ export default {
       default (item) { return item }
     },
     placeholder: {type: String},
-    template: {type: String},
+    template: {type: [String, Object]},
     type: {type: String, default: 'text'},
     value: {type: String, default: ''}
   },
@@ -54,8 +54,15 @@ export default {
   },
   computed: {
     templateComp () {
+      var template;
+      // Probably a better means of testing for a template renderer
+      if (typeof this.template === 'object') {
+        template = this.template;
+      } else {
+        template = typeof this.template === 'string' ? '<span>' + this.template + '</span>' : '<strong v-html="item"></strong>';
+      }
       return {
-        template: typeof this.template === 'string' ? '<span>' + this.template + '</span>' : '<strong v-html="item"></strong>',
+        template: template,
         props: { item: {default: null} }
       }
     }
