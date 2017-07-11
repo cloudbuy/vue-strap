@@ -26,7 +26,7 @@
         <li v-if="required&&!clearButton"><a @mousedown.prevent="clear() && close()">{{ placeholder || text.notSelected }}</a></li>
         <li v-for="option in filteredOptions" :id="option[optionsValue]">
           <a @mousedown.prevent="select(option[optionsValue])">
-            <span v-html="option[optionsLabel]"></span>
+            <span v-html="option[optionsLabel]"><small class="text-muted" v-if="option[optionsSubtext]">{{option[optionsSubtext]}}</small></span>
             <span class="glyphicon glyphicon-ok check-mark" v-show="isSelected(option[optionsValue])"></span>
           </a>
         </li>
@@ -60,12 +60,14 @@ export default {
     options: {type: Array, default () { return [] }},
     optionsLabel: {type: String, default: 'label'},
     optionsValue: {type: String, default: 'value'},
+    optionsSubtext: {type: String, default: 'subtext'},
     parent: {default: true},
     placeholder: {type: String, default: null},
     readonly: {type: Boolean, default: null},
     required: {type: Boolean, default: null},
     search: {type: Boolean, default: false},
     searchText: {type: String, default: null},
+    showSubtext: {type: Boolean, default: false},
     countText: {type: String, default: null},
     showCount: {type: Boolean, default: false},
     url: {type: String, default: null},
