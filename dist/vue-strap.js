@@ -4860,7 +4860,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    size: { type: String, default: null },
 	    text: { type: String, default: null },
 	    type: { type: String, default: 'default' },
-	    value: { type: Boolean, default: false }
+	    value: { type: Boolean, default: false },
+	    showCaret: { type: Boolean, default: true }
 	  },
 	  data: function data() {
 	    var show = this.value;
@@ -4954,9 +4955,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _vm.toggle($event)
 	      }
 	    }
-	  }, [_vm._t("button", [_vm._v(_vm._s(_vm.text))]), _vm._v(" "), _c('span', {
+	  }, [_vm._t("button", [_vm._v(_vm._s(_vm.text))]), _vm._v(" "), (_vm.showCaret) ? _c('span', {
 	    staticClass: "caret"
-	  })], 2) : _c('button', {
+	  }) : _vm._e()], 2) : _c('button', {
 	    class: ['btn btn-' + _vm.type, _vm.buttonSize, 'dropdown-toggle'],
 	    attrs: {
 	      "type": "button",
@@ -4972,9 +4973,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _vm.toggle($event)
 	      }
 	    }
-	  }, [_vm._t("button", [_vm._v(_vm._s(_vm.text))]), _vm._v(" "), _c('span', {
+	  }, [_vm._t("button", [_vm._v(_vm._s(_vm.text))]), _vm._v(" "), (_vm.showCaret) ? _c('span', {
 	    staticClass: "caret"
-	  })], 2), _vm._v(" "), _vm._t("dropdown-menu", [_c('ul', {
+	  }) : _vm._e()], 2), _vm._v(" "), _vm._t("dropdown-menu", [_c('ul', {
 	    staticClass: "dropdown-menu"
 	  }, [_vm._t("default")], 2)])], 2)
 	},staticRenderFns: []}
