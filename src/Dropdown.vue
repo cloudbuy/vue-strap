@@ -8,14 +8,14 @@
       @click.prevent="toggle"
     >
       <slot name="button">{{ text }}</slot>
-      <span class="caret"></span>
+      <span class="caret" v-if="showCaret"></span>
     </a>
     <button v-else type="button" :class="['btn btn-' + type,buttonSize,'dropdown-toggle']" :disabled="disabled"
       @keyup.esc="show = false"
       @click.prevent="toggle"
     >
       <slot name="button">{{ text }}</slot>
-      <span class="caret"></span>
+      <span class="caret" v-if="showCaret"></span>
     </button>
     <slot name="dropdown-menu">
       <ul class="dropdown-menu"><slot></slot></ul>
@@ -35,7 +35,8 @@ export default {
     size: {type: String, default: null},
     text: {type: String, default: null},
     type: {type: String, default: 'default'},
-    value: {type: Boolean, default: false}
+    value: {type: Boolean, default: false},
+    showCaret: {type: Boolean, default: true}
   },
   data () {
     var show = this.value
